@@ -1,0 +1,5 @@
+en:
+  plugins:
+    audits:
+      title: Resource Audits
+      label: Resource Audits

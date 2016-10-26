@@ -1,0 +1,15 @@
+<%= setup_context :title => I18n.t("plugins.audits.title") %>
+
+<div class="row">
+	<div class="col-md-8">
+		<h2><%= I18n.t("plugins.audits.title") %></h2>
+
+		<%= render_aspace_partial :partial => "shared/flash_messages" %>
+
+		<div id="audits">
+			<%= render_aspace_partial :partial => "audit_panel", :locals => { :code => "level1", :text => "Level 1" } %>
+			<%= render_aspace_partial :partial => "audit_panel", :locals => { :code => "level2", :text => "Level 2" } %>
+			<%= render_aspace_partial :partial => "audit_panel", :locals => { :code => "level3", :text => "Level 3" } %>
+		</div>
+	</div>
+</div>
