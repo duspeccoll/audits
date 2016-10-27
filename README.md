@@ -2,10 +2,25 @@
 
 Resource metadata level audits for DU Special Collections and Archives
 
-## Current Status
+## Level 1 Audit
 
-The frontend is just a placeholder for when the backend is cleaned up enough that I'm willing to push data to it.
+The only metadata level currently implemented, it consists of the following audit checks:
 
-The backend returns a *very* rough idea of what our Level 1 audit data will look like. It just returns the title and call numberfor each collection, and the total count of agents and subjects linked to it.
+* Title exists
+* Local call number exists
+* A proper, DACS-compliant date is present in the date expression
+  * Throws a warning if "Date Not Yet Determined" is found
+* A non-zero extent is present
+* An abstract note is present
+* At least one agent link is present
+* At least two subject links of any type are present
 
-At the moment I'm only pushing this to GH so I can work on it while afk at work.
+This is the minimum amount of bibliographic metadata we require for a collection record before we import its MARCXML representation to our ILS.
+
+### Not Yet implemented
+
+Container/item-level audit checks: Each item attached to a collection must contain the following:
+
+* Barcode
+* Unique item-level local call number
+* Container profile
