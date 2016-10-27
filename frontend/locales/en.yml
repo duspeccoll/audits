@@ -1,5 +1,8 @@
 en:
   plugins:
     audits:
-      title: Resource Audits
+      title: Resource Metadata Audits
       label: Resource Audits
+      actions:
+        loading: Audit in progress...
+        run: Run Audit
