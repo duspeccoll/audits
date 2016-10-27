@@ -12,6 +12,7 @@ class ArchivesSpaceService < Sinatra::Base
 			json = Resource.to_jsonmodel(coll[:id])
 			row = {
 				:id => coll[:id],
+				:uri => json[:uri],
 				:call_number => coll[:id_0],
 				:title => coll[:title],
 				:date => Audit.date?(json[:dates]),
