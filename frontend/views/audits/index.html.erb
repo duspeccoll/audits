@@ -39,7 +39,7 @@
 		{for row in rows}
 		<tr>
 			<td>${row.call_number}</td>
-			<td><a href="/resolve/readonly?uri=repositories/2/resources/${row.id}">${row.title}</a></td>
+			<td><a href="/resources/${row.id}">${row.title}</a></td>
 			{if row.date}
 				<td class="audit-success"><span class="glyphicon glyphicon-plus"></span></td>
 			{else}
