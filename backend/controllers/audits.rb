@@ -25,7 +25,7 @@ class ArchivesSpaceService < Sinatra::Base
 			rows.push(row)
 		end
 
-		json_response(:rows => rows)
+		json_response(:results => rows)
 	end
 
 end
