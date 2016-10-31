@@ -3,6 +3,7 @@ class Audit
   def initialize
   end
 
+  # checks to see if a date expression has been provided by an archivist
   def self.date?(dates)
     if dates.length == 1
       if dates[0]["expression"] == "Date Not Yet Determined"
@@ -15,6 +16,7 @@ class Audit
     end
   end
 
+  # checks to see if a numerical extent exists in the collection record
   def self.extent?(extents)
     if extents.nil?
       return false
@@ -28,6 +30,7 @@ class Audit
     end
   end
 
+  # checks to see if a note of type="abstract" exists in the collection record
   def self.abstract?(notes)
     if notes.nil?
       return false

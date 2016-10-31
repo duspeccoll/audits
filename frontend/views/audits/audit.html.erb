@@ -1,0 +1,33 @@
+<%= setup_context :title => I18n.t("plugins.audits.title") %>
+
+<div class="result">
+	<div class="col-md-12">
+		<h2><%= I18n.t("plugins.audits.title") %></h2>
+
+		<%= render_aspace_partial :partial => "shared/flash_messages" %>
+
+		<div id="audit_results">
+			<% if @audit_data['results'].empty? %>
+				<p>Nope!</p>
+			<% else %>
+	      <table id="audit-result" class="table table-striped table-bordered table-sortable">
+	        <thead>
+	          <tr>
+	            <% @headers.each do |header| %>
+	              <td><%= header %></td>
+	            <% end %>
+	          </tr>
+	        </thead>
+		      <% @audit_data['results'].each do |result| %>
+		        <%= render_aspace_partial :partial => "audit_result", :locals => { :result => result } %>
+		      <% end %>
+				</table>
+			<% end %>
+    </div>
+
+		<%= render_aspace_partial :partial => "audit_select" %>
+	</div>
+</div>
+
+<script src="<%= "#{AppConfig[:frontend_prefix]}assets/audits.js" %>"></script>
+<link href="<%= "#{AppConfig[:frontend_prefix]}assets/styles/audits.css" %>" media="all" rel="stylesheet" type="text/css"></link>

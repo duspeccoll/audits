@@ -1,0 +1,30 @@
+<tr>
+  <td><%= result['call_number'] %>
+  <td><a href="/resources/<%= result['id'] %>"><%= result['title'] %></a></td>
+  <% if result['date'] %>
+    <td class="audit-success"><span class="glyphicon glyphicon-plus"></span></td>
+  <% else %>
+    <td class="audit-warning"><span class="glyphicon glyphicon-exclamation-sign"></span></td>
+  <% end %>
+  <% if result['extent'] %>
+    <td class="audit-success"><span class="glyphicon glyphicon-plus"></span></td>
+  <% else %>
+    <td class="audit-failure"><span class="glyphicon glyphicon-remove"></span></td>
+  <% end %>
+  <% if result['abstract'] %>
+    <td class="audit-success"><span class="glyphicon glyphicon-plus"></span></td>
+  <% else %>
+    <td class="audit-failure"><span class="glyphicon glyphicon-remove"></span></td>
+  <% end %>
+  <% if result['agents'] == 0 %>
+    <td class="audit-failure"><%= result['agents'] %>
+  <% else %>
+    <td class="audit-success"><%= result['agents'] %>
+  <% end %>
+  <% if result['subjects'] < 2 %>
+    <td class="audit-failure"><%= result['subjects'] %>
+  <% else %>
+    <td class="audit-success"><%= result['subjects'] %>
+  <% end %>
+  <td id="container_link"><a href="#">Check</a></td>
+</tr>

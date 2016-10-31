@@ -6,74 +6,9 @@
 
 		<%= render_aspace_partial :partial => "shared/flash_messages" %>
 
-		<div id="audit_results"></div>
+		<%= render_aspace_partial :partial => "audit_select" %>
 
-		<div id="audit_select">
-			<%= form_tag({:controller => :audits, :action => :run}, {:id => "audit_form", :class => "form-select", :method => "GET"}) do |form| %>
-
-				<button type="submit" id="audit-select" class="btn btn-primary">
-					<%= I18n.t("plugins.audits.actions.run") %>
-				</button>
-
-			<% end %>
-		</div>
 	</div>
 </div>
 
-<script src="<%= "#{AppConfig[:frontend_prefix]}assets/audits.js" %>"></script>
 <link href="<%= "#{AppConfig[:frontend_prefix]}assets/styles/audits.css" %>" media="all" rel="stylesheet" type="text/css"></link>
-
-<div id="audit_result"><!--
-	<table id="audit-result" class="table table-striped table-bordered table-sortable">
-		<thead>
-			<tr>
-				<td>ID</td>
-				<td>Title</td>
-				<td>Date?</td>
-				<td>Extent?</td>
-				<td>Abstract?</td>
-				<td>Agents</td>
-				<td>Subjects</td>
-				<td>Containers</td>
-			</tr>
-		</thead>
-		{for result in results}
-		<tr>
-			<td>${result.call_number}</td>
-			<td><a href="/resources/${result.id}">${result.title}</a></td>
-			{if result.date}
-				<td class="audit-success"><span class="glyphicon glyphicon-plus"></span></td>
-			{else}
-				<td class="audit-warning"><span class="glyphicon glyphicon-exclamation-sign"></span></td>
-			{/if}
-			{if result.extent}
-				<td class="audit-success"><span class="glyphicon glyphicon-plus"></span></td>
-			{else}
-				<td class="audit-failure"><span class="glyphicon glyphicon-remove"></span></td>
-			{/if}
-			{if result.abstract}
-				<td class="audit-success"><span class="glyphicon glyphicon-plus"></span></td>
-			{else}
-				<td class="audit-failure"><span class="glyphicon glyphicon-remove"></span></td>
-			{/if}
-			{if result.agents == 0}
-				<td class="audit-failure">${result.agents}</td>
-			{else}
-				<td class="audit-success">${result.agents}</td>
-			{/if}
-			{if result.subjects < 2}
-				<td class="audit-failure">${result.subjects}</td>
-			{else}
-				<td class="audit-success">${result.subjects}</td>
-			{/if}
-			<td id="container_link"><a href="#">Check</a></td>
-		</tr>
-		{/for}
-	</table>
---></div>
-
-<div id="audit_loading"><!--
-	<center>
-		<div class="alert alert-info"><%= I18n.t("plugins.audits.actions.loading") %></div>
-	</center>
---></div>

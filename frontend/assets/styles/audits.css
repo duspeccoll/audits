@@ -22,6 +22,10 @@
   border-color: #ebccd1;
 }
 
-#audit_form {
+#audit_select {
   margin-bottom: 5px;
+}
+
+.btn-audit > a {
+  color: #fff;
 }
