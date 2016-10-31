@@ -1,6 +1,6 @@
 <%= setup_context :title => I18n.t("plugins.audits.title") %>
 
-<div class="row">
+<div class="result">
 	<div class="col-md-12">
 		<h2><%= I18n.t("plugins.audits.title") %></h2>
 
@@ -34,37 +34,39 @@
 				<td>Abstract?</td>
 				<td>Agents</td>
 				<td>Subjects</td>
+				<td>Containers</td>
 			</tr>
 		</thead>
-		{for row in rows}
+		{for result in results}
 		<tr>
-			<td>${row.call_number}</td>
-			<td><a href="/resources/${row.id}">${row.title}</a></td>
-			{if row.date}
+			<td>${result.call_number}</td>
+			<td><a href="/resources/${result.id}">${result.title}</a></td>
+			{if result.date}
 				<td class="audit-success"><span class="glyphicon glyphicon-plus"></span></td>
 			{else}
 				<td class="audit-warning"><span class="glyphicon glyphicon-exclamation-sign"></span></td>
 			{/if}
-			{if row.extent}
+			{if result.extent}
 				<td class="audit-success"><span class="glyphicon glyphicon-plus"></span></td>
 			{else}
 				<td class="audit-failure"><span class="glyphicon glyphicon-remove"></span></td>
 			{/if}
-			{if row.abstract}
+			{if result.abstract}
 				<td class="audit-success"><span class="glyphicon glyphicon-plus"></span></td>
 			{else}
 				<td class="audit-failure"><span class="glyphicon glyphicon-remove"></span></td>
 			{/if}
-			{if row.agents == 0}
-				<td class="audit-failure">${row.agents}</td>
+			{if result.agents == 0}
+				<td class="audit-failure">${result.agents}</td>
 			{else}
-				<td class="audit-success">${row.agents}</td>
+				<td class="audit-success">${result.agents}</td>
 			{/if}
-			{if row.subjects < 2}
-				<td class="audit-failure">${row.subjects}</td>
+			{if result.subjects < 2}
+				<td class="audit-failure">${result.subjects}</td>
 			{else}
-				<td class="audit-success">${row.subjects}</td>
+				<td class="audit-success">${result.subjects}</td>
 			{/if}
+			<td id="container_link"><a href="#">Check</a></td>
 		</tr>
 		{/for}
 	</table>

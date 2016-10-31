@@ -13,7 +13,7 @@ $(function() {
     success: function(json) {
       $(".btn", $auditForm).removeAttr("disabled").removeClass("disabled");
       $auditResults.empty();
-      $auditResults.append(AS.renderTemplate("audit_result", {rows: json.rows}));
+      $auditResults.append(AS.renderTemplate("audit_result", {results: json.results}));
     }
   });
 })
