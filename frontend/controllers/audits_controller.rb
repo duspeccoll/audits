@@ -10,7 +10,7 @@ class AuditsController < ApplicationController
 
 			format.html {
 				@audit_data = JSONModel::HTTP::get_json("/repositories/#{session[:repo_id]}/audits")
-				@headers = ["ID", "Title", "Date", "Extent", "Abstract", "Agents", "Subjects", "Container"]
+				@headers = ["ID", "Title", "Date", "Extent", "Abstract", "Agents", "Subjects"]
 				render "audits/audit"
 			}
 
